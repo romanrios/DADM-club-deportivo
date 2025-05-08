@@ -13,6 +13,30 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".OperacionExitosaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CarnetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GenerarCarnetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReciboActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PagarCuotaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VencimientosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarNoSocioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarSocioActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
