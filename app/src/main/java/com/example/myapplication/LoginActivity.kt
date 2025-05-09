@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        configureButton(R.id.btn_continue, MenuActivity::class.java)
+        configureButton(R.id.btn_registrarSocio, MenuActivity::class.java)
 
     }
 

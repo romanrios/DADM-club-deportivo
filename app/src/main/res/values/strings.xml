@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Super ROMAN App</string>
+    <string name="app_name">Club Atlético Cinco Estrellas</string>
+    <string name="btn_registrarSocio">Registrar Socio</string>
+    <string name="btn_registrarNoSocio">Registrar No Socio</string>
+    <string name="btn_listarVencimientos">Listar Vencimientos</string>
+    <string name="btn_pagarCuota">Pagar Cuota</string>
+    <string name="btn_generarCarnet">Generar Carnet</string>
+    <string name="desc_img_logo">Logotipo del Club Atlético Cinco Estrellas</string>
+    <string name="txt_menuPrincipal">Menú Principal</string>
+
 </resources>

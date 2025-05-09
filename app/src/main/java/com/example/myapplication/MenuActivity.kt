@@ -20,7 +20,11 @@ class MenuActivity : AppCompatActivity() {
             insets
         }
 
-        configureButton(R.id.btn3, DatabaseActivity::class.java)
+        configureButton(R.id.btn_registrarSocio, RegistrarSocioActivity::class.java)
+        configureButton(R.id.btn_registrarNoSocio, RegistrarNoSocioActivity::class.java)
+        configureButton(R.id.btn_listarVencimientos, VencimientosActivity::class.java)
+        configureButton(R.id.btn_pagarCuota, PagarCuotaActivity::class.java)
+        configureButton(R.id.btn_generarCarnet, GenerarCarnetActivity::class.java)
 
     }
 
