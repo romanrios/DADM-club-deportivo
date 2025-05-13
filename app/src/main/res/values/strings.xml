@@ -27,5 +27,7 @@
     <string name="pagarcuota_txt_title">Pagar Cuota</string>
     <string name="pagarcuota_rb_tarjeta">Tarjeta</string>
     <string name="pagarcuota_rb_efectivo">Efectivo</string>
+    <string name="generarcarnet_txt_title">Generar Carnet</string>
+    <string name="generarcarnet_btn_generar">Generar</string>
 
 </resources>

@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GenerarCarnetActivity">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Toolbar reutilizable -->
+    <include layout="@layout/toolbar" />
+
+
+    <!-- Contenido scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/softWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:divider="@drawable/space_18dp"
+            android:orientation="vertical"
+            android:paddingBottom="80dp"
+            android:showDividers="middle">
+
+            <!-- Título -->
+
+
+            <TextView
+                android:id="@+id/txt_titleRegistrarSocio"
+                style="@style/TitleStyle"
+                android:text="@string/generarcarnet_txt_title" />
+
+            <!-- Campo Nombre -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pagarcuota_et_dni">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_pagarcuota_dni"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_generar"
+                style="@style/ButtonStyle"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/generarcarnet_btn_generar" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
