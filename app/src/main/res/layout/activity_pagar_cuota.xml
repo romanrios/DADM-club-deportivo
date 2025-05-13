@@ -68,7 +68,7 @@
             <Button
                 android:id="@+id/pagarcuota_btn_pagar"
                 style="@style/ButtonStyle"
-                android:layout_marginHorizontal="20dp"
+                android:layout_weight="1"
                 android:text="@string/pagarcuota_btn_pagar"
                 />
 

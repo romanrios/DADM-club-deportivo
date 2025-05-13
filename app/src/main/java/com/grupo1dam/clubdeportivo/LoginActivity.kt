@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
+
         setNavigationButton(R.id.btn_continuar, MenuActivity::class.java )
 
     }

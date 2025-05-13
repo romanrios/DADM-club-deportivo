@@ -6,8 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.grupo1dam.clubdeportivo.base.BaseActivity
 
-class OperacionExitosaActivity : AppCompatActivity() {
+class OperacionExitosaActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,6 +18,8 @@ class OperacionExitosaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        setupToolbarNavigation()
 
         setNavigationButton(R.id.operacionexitosa_btn_continuar, MenuActivity::class.java, "reverse")
 

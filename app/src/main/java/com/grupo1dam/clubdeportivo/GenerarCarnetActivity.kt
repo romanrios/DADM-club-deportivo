@@ -3,11 +3,11 @@ package com.grupo1dam.clubdeportivo
 import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.grupo1dam.clubdeportivo.base.BaseActivity
 
-class GenerarCarnetActivity : AppCompatActivity() {
+class GenerarCarnetActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,6 +17,8 @@ class GenerarCarnetActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        setupToolbarNavigation()
 
         setNavigationButton(R.id.generarcarnet_btn_generar, CarnetActivity::class.java)
 

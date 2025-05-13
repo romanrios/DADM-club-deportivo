@@ -39,16 +39,16 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
-                app:contentPaddingBottom="35dp"
+                app:contentPaddingTop="50dp"
+                app:contentPaddingBottom="50dp"
                 app:contentPaddingLeft="16dp"
                 app:contentPaddingRight="16dp"
-                app:contentPaddingTop="35dp"
                 android:layout_marginHorizontal="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:divider="@drawable/space_18dp"
+                    android:divider="@drawable/space_36dp"
                     android:orientation="vertical"
                     android:showDividers="middle">
 

@@ -41,6 +41,13 @@
     <string name="operacionexitosa_btn_continuar">Continuar</string>
     <string name="operacionexitosa_txt_operacionexitosa">Operación exitosa</string>
     <string name="operacionexitosa_desc_iconocorrecto">Ícono de operación exitosa</string>
+    <string name="carnet_txt_title">Carnet</string>
+    <string name="carnet_txt_dni"><b>DNI</b>: 32.123.654</string>
+    <string name="carnet_txt_ndesocio"><b>N° de Socio</b>: 00127</string>
+    <string name="carnet_txt_fechadeinscripcion"><b>Fecha de inscripción</b>: 03/03/2023</string>
+    <string name="carnet_btn_imprimir">Imprimir</string>
+    <string name="vencimientos_txt_title">Vencimientos</string>
+    <string name="vencimientos_btn_continuar">Continuar</string>
 
 
 </resources>
