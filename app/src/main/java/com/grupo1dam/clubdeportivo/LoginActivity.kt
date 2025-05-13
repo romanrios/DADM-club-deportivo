@@ -1,9 +1,7 @@
 package com.grupo1dam.clubdeportivo
 
-import android.app.ActivityOptions
-import android.content.Intent
+import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -26,11 +24,7 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        val btnContinuar: Button = findViewById(R.id.btn_continuar)
-        btnContinuar.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
+        setNavigationButton(R.id.btn_continuar, MenuActivity::class.java )
 
     }
 

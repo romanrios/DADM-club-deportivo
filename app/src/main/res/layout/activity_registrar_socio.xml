@@ -38,7 +38,7 @@
                 style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nombre">
+                android:hint="@string/registrarsocio_et_nombre">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_nombre"
@@ -133,7 +133,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_aceptar"
+                    android:id="@+id/registrarsocio_btn_aceptar"
                     style="@style/ButtonStyle"
                     android:layout_width="0dp"
                     android:layout_weight="1"

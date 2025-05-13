@@ -66,7 +66,7 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/btn_pagar"
+                android:id="@+id/pagarcuota_btn_pagar"
                 style="@style/ButtonStyle"
                 android:layout_marginHorizontal="20dp"
                 android:text="@string/pagarcuota_btn_pagar"

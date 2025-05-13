@@ -1,5 +1,6 @@
 package com.grupo1dam.clubdeportivo
 
+import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,5 +17,8 @@ class GenerarCarnetActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        setNavigationButton(R.id.generarcarnet_btn_generar, CarnetActivity::class.java)
+
     }
 }

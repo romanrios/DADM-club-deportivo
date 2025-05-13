@@ -36,6 +36,11 @@
     <string name="recibo_txt_formadepago"><b>Forma de pago</b>: Tarjeta</string>
     <string name="recibo_txt_monto"><b>Monto</b>: $30.000</string>
     <string name="recibo_txt_title">Recibo</string>
+    <string name="registrarnosocio_et_nombre">Nombre</string>
+    <string name="registrarsocio_et_nombre">Nombre</string>
+    <string name="operacionexitosa_btn_continuar">Continuar</string>
+    <string name="operacionexitosa_txt_operacionexitosa">Operación exitosa</string>
+    <string name="operacionexitosa_desc_iconocorrecto">Ícono de operación exitosa</string>
 
 
 </resources>

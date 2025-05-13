@@ -1,6 +1,6 @@
 package com.grupo1dam.clubdeportivo
 
-import com.grupo1dam.clubdeportivo.utils.configureButton
+import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,11 +18,11 @@ class MenuActivity : AppCompatActivity() {
             insets
         }
 
-        configureButton(R.id.btn_continuar, RegistrarSocioActivity::class.java)
-        configureButton(R.id.btn_registrarNoSocio, RegistrarNoSocioActivity::class.java)
-        configureButton(R.id.btn_listarVencimientos, VencimientosActivity::class.java)
-        configureButton(R.id.btn_pagarCuota, PagarCuotaActivity::class.java)
-        configureButton(R.id.btn_generarCarnet, GenerarCarnetActivity::class.java)
+        setNavigationButton(R.id.btn_continuar, RegistrarSocioActivity::class.java, "forward")
+        setNavigationButton(R.id.btn_registrarNoSocio, RegistrarNoSocioActivity::class.java,"forward")
+        setNavigationButton(R.id.btn_listarVencimientos, VencimientosActivity::class.java,"forward")
+        setNavigationButton(R.id.btn_pagarCuota, PagarCuotaActivity::class.java,"forward")
+        setNavigationButton(R.id.btn_generarCarnet, GenerarCarnetActivity::class.java,"forward")
 
     }
 

@@ -49,7 +49,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/recibo_btn_imprimir"
+                android:id="@+id/generarcarnet_btn_generar"
                 style="@style/ButtonStyle"
                 android:layout_marginHorizontal="20dp"
                 android:text="@string/generarcarnet_btn_generar" />
