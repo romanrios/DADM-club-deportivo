@@ -29,5 +29,13 @@
     <string name="pagarcuota_rb_efectivo">Efectivo</string>
     <string name="generarcarnet_txt_title">Generar Carnet</string>
     <string name="generarcarnet_btn_generar">Generar</string>
+    <string name="recibo_btn_imprimir">Imprimir</string>
+    <string name="recibo_txt_fecha"><b>Fecha</b>: 03/04/2025</string>
+    <string name="recibo_txt_dni"><b>DNI</b>: 38258692</string>
+    <string name="recibo_txt_inscripcion"><b>Fecha de Inscripción</b>: 03/03/2023</string>
+    <string name="recibo_txt_formadepago"><b>Forma de pago</b>: Tarjeta</string>
+    <string name="recibo_txt_monto"><b>Monto</b>: $30.000</string>
+    <string name="recibo_txt_title">Recibo</string>
+
 
 </resources>
