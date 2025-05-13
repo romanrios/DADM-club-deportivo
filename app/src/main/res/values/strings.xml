@@ -7,5 +7,25 @@
     <string name="btn_generarCarnet">Generar Carnet</string>
     <string name="desc_img_logo">Logotipo del Club Atlético Cinco Estrellas</string>
     <string name="txt_menuPrincipal">Menú Principal</string>
+    <string name="txt_iniciarSesion">Iniciar sesión</string>
+    <string name="txt_ingreseSuEmail">Ingrese su email y contraseña para iniciar sesión</string>
+    <string name="txt_continuar">Continuar</string>
+    <string name="txt_correoElectronico">Correo electrónico</string>
+    <string name="txt_contrasena">Contraseña</string>
+    <string name="registrar_socio">REGISTRAR SOCIO</string>
+    <string name="pagarcuota_et_dni">DNI de Socio</string>
+    <string name="estado">Estado</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="fecha_de_inscripci_n">Fecha de inscripción</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="apellido">Apellido</string>
+    <string name="dni">DNI</string>
+    <string name="entreg_apto_f_sico">Entregó apto físico</string>
+    <string name="registrar_no_socio">Registrar No Socio</string>
+    <string name="pagarcuota_btn_pagar">Pagar</string>
+    <string name="pagarcuota_txt_title">Pagar Cuota</string>
+    <string name="pagarcuota_rb_tarjeta">Tarjeta</string>
+    <string name="pagarcuota_rb_efectivo">Efectivo</string>
 
 </resources>

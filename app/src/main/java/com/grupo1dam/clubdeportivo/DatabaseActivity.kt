@@ -1,6 +1,6 @@
-package com.example.myapplication
+package com.grupo1dam.clubdeportivo
 
-import MyDatabaseHelper
+import DatabaseHelper
 import android.content.ContentValues
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class DatabaseActivity : AppCompatActivity() {
 
-    private lateinit var dbHelper: MyDatabaseHelper
+    private lateinit var dbHelper: DatabaseHelper
     private lateinit var listView: ListView
     private lateinit var adapter: ArrayAdapter<String>
     private lateinit var nameInput: EditText
@@ -32,7 +32,7 @@ class DatabaseActivity : AppCompatActivity() {
             insets
         }
 
-        dbHelper = MyDatabaseHelper(this)
+        dbHelper = DatabaseHelper(this)
 
         nameInput = findViewById(R.id.editTextName)
         val insertButton = findViewById<Button>(R.id.buttonInsert)
@@ -92,9 +92,9 @@ class DatabaseActivity : AppCompatActivity() {
     private fun insertUser(name: String) {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
-            put(MyDatabaseHelper.COLUMN_NAME, name)
+            put(DatabaseHelper.COLUMN_NAME, name)
         }
-        db.insert(MyDatabaseHelper.TABLE_NAME, null, values)
+        db.insert(DatabaseHelper.TABLE_NAME, null, values)
         db.close()
     }
 
