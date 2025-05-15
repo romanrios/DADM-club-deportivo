@@ -1,8 +1,8 @@
 package com.grupo1dam.clubdeportivo
 
-import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -23,7 +23,10 @@ class VencimientosActivity : BaseActivity() {
 
         setupToolbarNavigation()
 
-        setNavigationButton(R.id.vencimientos_btn_continuar, MenuActivity::class.java, "reverse")
+        findViewById<Button>(R.id.vencimientos_btn_continuar).setOnClickListener {
+            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
 
 
         // 1. Referencia al ListView
@@ -31,11 +34,12 @@ class VencimientosActivity : BaseActivity() {
 
         // 2. Datos de ejemplo
         val usuarios = listOf(
-            "Juan Pérez",
-            "María López",
-            "Carlos Sánchez",
-            "Laura Torres",
-            "Ana Martínez"
+            "Daniel Ignacio Córdoba",
+            "Mariela Belén Giménez",
+            "Cecilia Daniela Gómez",
+            "Eugenia Lucchelli",
+            "Román Ríos",
+            "Kevin Axel Del Bello"
         )
 
         // 3. Adaptador

@@ -18,7 +18,7 @@
         <item name="colorOnSurface">@color/black</item>
 
         <!-- Status y navigation bar -->
-        <item name="android:statusBarColor">@color/blue</item>
+        <item name="android:statusBarColor">@color/softWhite</item>
         <item name="android:navigationBarColor">@color/softWhite</item>
     </style>
 

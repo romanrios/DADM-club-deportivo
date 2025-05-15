@@ -13,13 +13,8 @@ open class BaseActivity : AppCompatActivity() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
 
         toolbar?.setNavigationOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-
-            val enterAnim = R.anim.slide_in_left
-            val exitAnim = R.anim.slide_out_right
-            val options = ActivityOptions.makeCustomAnimation(this, enterAnim, exitAnim)
-
-            startActivity(intent, options.toBundle())
+            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
     }
 }

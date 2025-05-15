@@ -2,6 +2,7 @@ package com.grupo1dam.clubdeportivo
 
 import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,13 +19,16 @@ class MenuActivity : AppCompatActivity() {
             insets
         }
 
-        setNavigationButton(R.id.btn_continuar, RegistrarSocioActivity::class.java, "forward")
-        setNavigationButton(R.id.btn_registrarNoSocio, RegistrarNoSocioActivity::class.java,"forward")
-        setNavigationButton(R.id.btn_listarVencimientos, VencimientosActivity::class.java,"forward")
-        setNavigationButton(R.id.btn_pagarCuota, PagarCuotaActivity::class.java,"forward")
-        setNavigationButton(R.id.btn_generarCarnet, GenerarCarnetActivity::class.java,"forward")
+        setNavigationButton(R.id.btn_continuar, RegistrarSocioActivity::class.java, "forward",false)
+        setNavigationButton(R.id.btn_registrarNoSocio, RegistrarNoSocioActivity::class.java,"forward", false)
+        setNavigationButton(R.id.btn_listarVencimientos, VencimientosActivity::class.java,"forward", false)
+        setNavigationButton(R.id.btn_pagarCuota, PagarCuotaActivity::class.java,"forward", false)
+        setNavigationButton(R.id.btn_generarCarnet, GenerarCarnetActivity::class.java,"forward", false)
+
+        findViewById<TextView>(R.id.menu_txt_cerrarsesion).setOnClickListener {
+            finish()
+        }
 
     }
-
 
 }

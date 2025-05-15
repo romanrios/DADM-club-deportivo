@@ -8,11 +8,37 @@
     android:background="@drawable/fondo"
     tools:context=".LoginActivity">
 
+
+    <TextView
+        android:id="@+id/menu_txt_cerrarsesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:text="@string/menu_txt_cerrarsesion"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="340dp"
+        android:layout_height="578dp"
+        android:layout_marginTop="128dp"
+        android:alpha="0.3"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="97dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="64dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="96dp"
         android:contentDescription="@string/desc_img_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -20,22 +46,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-
     <Button
         android:id="@+id/btn_continuar"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="40dp"
+        android:drawableLeft="@drawable/star_icon"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
         android:text="@string/btn_registrarSocio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_menuPrincipal"
+        />
 
     <Button
         android:id="@+id/btn_pagarCuota"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/star_icon"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
         android:text="@string/btn_pagarCuota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +78,9 @@
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/star_icon"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
         android:text="@string/btn_listarVencimientos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +91,9 @@
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/star_icon"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
         android:text="@string/btn_generarCarnet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +104,9 @@
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/star_icon"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
         android:text="@string/btn_registrarNoSocio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +117,7 @@
         style="@style/TitleStyle"
         android:layout_marginTop="28dp"
         android:text="@string/txt_menuPrincipal"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />

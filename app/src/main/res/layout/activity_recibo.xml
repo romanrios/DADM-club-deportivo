@@ -99,7 +99,8 @@
                 android:id="@+id/recibo_btn_imprimir"
                 style="@style/ButtonStyle"
                 android:layout_marginHorizontal="20dp"
-                android:text="@string/recibo_btn_imprimir" />
+                android:text="@string/recibo_btn_imprimir"
+                android:layout_marginTop="12dp"/>
 
         </LinearLayout>
 

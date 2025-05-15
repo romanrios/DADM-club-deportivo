@@ -51,7 +51,8 @@
             <Button
                 android:id="@+id/generarcarnet_btn_generar"
                 style="@style/ButtonStyle"
-                android:text="@string/generarcarnet_btn_generar" />
+                android:text="@string/generarcarnet_btn_generar"
+                android:layout_marginTop="12dp"/>
 
         </LinearLayout>
 

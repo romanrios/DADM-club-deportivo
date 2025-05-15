@@ -48,6 +48,7 @@
     <string name="carnet_btn_imprimir">Imprimir</string>
     <string name="vencimientos_txt_title">Vencimientos</string>
     <string name="vencimientos_btn_continuar">Continuar</string>
+    <string name="menu_txt_cerrarsesion">Cerrar sesión</string>
 
 
 </resources>

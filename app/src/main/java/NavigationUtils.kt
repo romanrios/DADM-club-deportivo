@@ -5,18 +5,11 @@ import android.content.Intent
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-/**
- * Configura un botón para lanzar una actividad con una transición opcional.
- *
- * @param buttonId El ID del botón.
- * @param activityClass La clase de la actividad destino.
- * @param transitionDirection Dirección de la animación: "forward", "reverse", o null para sin animación.
- */
-
 fun <T> AppCompatActivity.setNavigationButton(
     buttonId: Int,
     activityClass: Class<T>,
-    transitionDirection: String? = null
+    transitionDirection: String? = null,
+    shouldFinishCurrent: Boolean = true
 ) {
     val button: Button = findViewById(buttonId)
     button.setOnClickListener {
@@ -33,8 +26,11 @@ fun <T> AppCompatActivity.setNavigationButton(
             val options = ActivityOptions.makeCustomAnimation(this, enterAnim, exitAnim)
             startActivity(intent, options.toBundle())
         } else {
-            // Transición sin animación
             startActivity(intent)
+        }
+
+        if (shouldFinishCurrent) {
+            finish()
         }
     }
 }
