@@ -85,7 +85,9 @@
                     android:id="@+id/et_fecha_nacimiento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date"/>
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Fecha de inscripción -->
@@ -99,7 +101,9 @@
                     android:id="@+id/et_fecha_inscripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date"/>
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Checkbox -->

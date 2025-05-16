@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Club Atlético Cinco Estrellas</string>
-    <string name="btn_registrarSocio">Registrar Socio</string>
+    <string name="menu_btn_registrarsocio">Registrar Socio</string>
     <string name="btn_registrarNoSocio">Registrar No Socio</string>
-    <string name="btn_listarVencimientos">Listar Vencimientos</string>
-    <string name="btn_pagarCuota">Pagar Cuota</string>
+    <string name="menu_btn_listarvencimientos">Listar Vencimientos</string>
+    <string name="menu_btn_pagarcuota">Pagar Cuota</string>
     <string name="btn_generarCarnet">Generar Carnet</string>
-    <string name="desc_img_logo">Logotipo del Club Atlético Cinco Estrellas</string>
-    <string name="txt_menuPrincipal">Menú Principal</string>
-    <string name="txt_iniciarSesion">Iniciar sesión</string>
-    <string name="txt_ingreseSuEmail">Ingrese su email y contraseña para iniciar sesión</string>
+    <string name="desc_imglogo">Logotipo del Club Atlético Cinco Estrellas</string>
+    <string name="menu_txt_menuprincipal">Menú Principal</string>
+    <string name="login_txt_iniciarSesion">Iniciar sesión</string>
+    <string name="login_txt_ingresesuemail">Ingrese su email y contraseña para iniciar sesión</string>
     <string name="txt_continuar">Continuar</string>
-    <string name="txt_correoElectronico">Correo electrónico</string>
-    <string name="txt_contrasena">Contraseña</string>
+    <string name="login_txt_correo">Correo electrónico</string>
+    <string name="login_txt_contrasena">Contraseña</string>
     <string name="registrar_socio">REGISTRAR SOCIO</string>
     <string name="pagarcuota_et_dni">DNI de Socio</string>
     <string name="estado">Estado</string>

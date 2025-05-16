@@ -75,19 +75,6 @@
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Campo Estado -->
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/TextFieldStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/estado">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_estado"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Fecha de nacimiento -->
             <com.google.android.material.textfield.TextInputLayout
@@ -100,7 +87,9 @@
                     android:id="@+id/et_fecha_nacimiento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date"/>
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Fecha de inscripción -->
@@ -114,7 +103,9 @@
                     android:id="@+id/et_fecha_inscripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date"/>
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Checkbox -->

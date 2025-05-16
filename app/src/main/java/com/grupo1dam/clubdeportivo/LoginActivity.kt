@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        setNavigationButton(R.id.btn_continuar, MenuActivity::class.java, null, false)
+        setNavigationButton(R.id.menu_btn_continuar, MenuActivity::class.java, null, false)
 
     }
 

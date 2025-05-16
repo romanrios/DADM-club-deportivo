@@ -28,7 +28,7 @@
 
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/menu_view"
         android:layout_width="340dp"
         android:layout_height="571dp"
         android:layout_marginTop="116dp"
@@ -39,39 +39,39 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/menu_img_logo"
         android:layout_width="64dp"
         android:layout_height="74dp"
         android:layout_marginTop="80dp"
-        android:contentDescription="@string/desc_img_logo"
+        android:contentDescription="@string/desc_imglogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/btn_continuar"
+        android:id="@+id/menu_btn_continuar"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="40dp"
         android:drawableLeft="@drawable/star_icon"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
-        android:text="@string/btn_registrarSocio"
+        android:text="@string/menu_btn_registrarsocio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_menuPrincipal"
+        app:layout_constraintTop_toBottomOf="@+id/menu_txt_menuprincipal"
         />
 
     <Button
-        android:id="@+id/btn_pagarCuota"
+        android:id="@+id/menu_btn_pagarcuota"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/star_icon"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
-        android:text="@string/btn_pagarCuota"
+        android:text="@string/menu_btn_pagarcuota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_listarVencimientos" />
@@ -84,7 +84,7 @@
         android:drawableLeft="@drawable/star_icon"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
-        android:text="@string/btn_listarVencimientos"
+        android:text="@string/menu_btn_listarvencimientos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_registrarNoSocio" />
@@ -100,7 +100,7 @@
         android:text="@string/btn_generarCarnet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pagarCuota" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_btn_pagarcuota" />
 
     <Button
         android:id="@+id/btn_registrarNoSocio"
@@ -113,17 +113,17 @@
         android:text="@string/btn_registrarNoSocio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_continuar" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_btn_continuar" />
 
     <TextView
-        android:id="@+id/txt_menuPrincipal"
+        android:id="@+id/menu_txt_menuprincipal"
         style="@style/TitleStyle"
         android:layout_marginTop="28dp"
-        android:text="@string/txt_menuPrincipal"
+        android:text="@string/menu_txt_menuprincipal"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_img_logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
