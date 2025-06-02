@@ -13,7 +13,6 @@
         android:layout_marginTop="100dp"
         android:contentDescription="@string/desc_imglogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -56,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="@string/login_txt_ingresesuemail"
         android:textColor="@color/blue"
         android:textSize="16sp"
@@ -68,7 +68,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/edittext_background"
         android:hint="@string/login_txt_correo"
@@ -79,6 +79,7 @@
         android:textColorHint="@color/grey"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_txt_ingresesuemail"
         app:layout_constraintWidth_max="488dp" />

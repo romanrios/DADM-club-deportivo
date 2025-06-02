@@ -1,12 +1,15 @@
 package com.grupo1dam.clubdeportivo
 
-import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.grupo1dam.clubdeportivo.base.BaseActivity
+import com.grupo1dam.clubdeportivo.utils.DatabaseHelper
+import com.grupo1dam.clubdeportivo.utils.RegistroHelper
 import com.grupo1dam.clubdeportivo.utils.showDatePicker
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -25,23 +28,45 @@ class RegistrarNoSocioActivity : BaseActivity() {
 
         setupToolbarNavigation()
 
-        setNavigationButton(R.id.registrarNoSocio_btn_aceptar, OperacionExitosaActivity::class.java)
 
-        // Lógica para los campos de fecha
+        // Referencias UI
+        val etNombre = findViewById<EditText>(R.id.registrarNoSocio_et_nombre)
+        val etApellido = findViewById<EditText>(R.id.registrarNoSocio_et_apellido)
+        val etDni = findViewById<EditText>(R.id.registrarNoSocio_et_dni)
         val etFechaNacimiento = findViewById<EditText>(R.id.registrarNoSocio_et_fechaNacimiento)
         val etFechaInscripcion = findViewById<EditText>(R.id.registrarNoSocio_et_fechaInscripcion)
+        val cbAptoFisico = findViewById<CheckBox>(R.id.registrarNoSocio_cb_aptoFisico)
+        val btnAceptar = findViewById<Button>(R.id.registrarNoSocio_btn_aceptar)
+        val btnLimpiar = findViewById<Button>(R.id.registrarNoSocio_btn_limpiar)
+        val db = DatabaseHelper(this)
 
-        // Establecer fecha actual como valor por defecto
-        val fechaActual = Calendar.getInstance().time
-        val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        etFechaInscripcion.setText(formato.format(fechaActual))
+        // Fecha por defecto en inscripción
+        val formatoFecha = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        etFechaInscripcion.setText(formatoFecha.format(Calendar.getInstance().time))
 
+        // Date pickers
         etFechaNacimiento.setOnClickListener {
             showDatePicker(this, etFechaNacimiento, maxDate = System.currentTimeMillis())
         }
-
         etFechaInscripcion.setOnClickListener {
             showDatePicker(this, etFechaInscripcion)
         }
+
+        // RegistroHelper
+        val helper = RegistroHelper(this, db, "noSocio")
+        // Botón aceptar
+        btnAceptar.setOnClickListener {
+            helper.registrar(etNombre, etApellido, etDni, etFechaNacimiento, etFechaInscripcion, cbAptoFisico)
+        }
+
+        // Botón Limpiar
+        btnLimpiar.setOnClickListener {
+            etNombre.text.clear()
+            etApellido.text.clear()
+            etDni.text.clear()
+            etFechaNacimiento.text.clear()
+        }
+
+
     }
 }

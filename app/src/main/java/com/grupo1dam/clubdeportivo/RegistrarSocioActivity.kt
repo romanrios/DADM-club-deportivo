@@ -1,19 +1,17 @@
 package com.grupo1dam.clubdeportivo
 
 import com.grupo1dam.clubdeportivo.utils.showDatePicker
-import com.grupo1dam.clubdeportivo.utils.convertirFecha
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.grupo1dam.clubdeportivo.base.BaseActivity
 import com.grupo1dam.clubdeportivo.utils.DatabaseHelper
-import com.grupo1dam.clubdeportivo.utils.setNavigationButton
+import com.grupo1dam.clubdeportivo.utils.RegistroHelper
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -32,9 +30,7 @@ class RegistrarSocioActivity : BaseActivity() {
 
         setupToolbarNavigation()
 
-        setNavigationButton(R.id.registrarSocio_btn_aceptar, OperacionExitosaActivity::class.java)
-
-        // Asignaciones
+        // Referencias UI
         val etNombre = findViewById<EditText>(R.id.registrarSocio_et_nombre)
         val etApellido = findViewById<EditText>(R.id.registrarSocio_et_apellido)
         val etDni = findViewById<EditText>(R.id.registrarSocio_et_dni)
@@ -43,14 +39,13 @@ class RegistrarSocioActivity : BaseActivity() {
         val cbAptoFisico = findViewById<CheckBox>(R.id.registrarSocio_cb_aptoFisico)
         val btnAceptar = findViewById<Button>(R.id.registrarSocio_btn_aceptar)
         val btnLimpiar = findViewById<Button>(R.id.registrarSocio_btn_limpiar)
-        val databaseHelper = DatabaseHelper(this)
+        val db = DatabaseHelper(this)
 
-        // Establecer fecha actual como valor por defecto
-        val fechaActual = Calendar.getInstance().time
-        val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        etFechaInscripcion.setText(formato.format(fechaActual))
+        // Fecha por defecto en inscripción
+        val formatoFecha = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        etFechaInscripcion.setText(formatoFecha.format(Calendar.getInstance().time))
 
-        // Mostrar selector de fecha al hacer clic en los campos
+        // Date pickers
         etFechaNacimiento.setOnClickListener {
             showDatePicker(this, etFechaNacimiento, maxDate = System.currentTimeMillis())
         }
@@ -58,39 +53,11 @@ class RegistrarSocioActivity : BaseActivity() {
             showDatePicker(this, etFechaInscripcion)
         }
 
+        // RegistroHelper
+        val helper = RegistroHelper(this, db, "socio")
         // Botón aceptar
         btnAceptar.setOnClickListener {
-            val nombre = etNombre.text.toString().trim()
-            val apellido = etApellido.text.toString().trim()
-            val dniTexto = etDni.text.toString().trim()
-            val fechaNacimiento = convertirFecha(etFechaNacimiento.text.toString()).toString()
-            val fechaInscripcion = convertirFecha(etFechaInscripcion.text.toString()).toString()
-            val aptoFisico = if (cbAptoFisico.isChecked) 1 else 0
-
-            // Validaciones
-            val campos = listOf(nombre, apellido, dniTexto, fechaNacimiento, fechaInscripcion)
-            if (campos.any { it.isEmpty() }) {
-                Toast.makeText(this, "Por favor, completá todos los campos correctamente", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            val dni = dniTexto.toIntOrNull()
-            if (dni == null) {
-                Toast.makeText(this, "DNI inválido", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            // Lógica para registrar socio
-            if (databaseHelper.insertarSocio(
-                    nombre, apellido, dni, fechaNacimiento, fechaInscripcion, aptoFisico
-                )
-            ) {
-                Toast.makeText(this, "Socio agregado", Toast.LENGTH_SHORT).show()
-                etNombre.text.clear()
-                etApellido.text.clear()
-                etDni.text.clear()
-                etFechaNacimiento.text.clear()
-            }
+            helper.registrar(etNombre, etApellido, etDni, etFechaNacimiento, etFechaInscripcion, cbAptoFisico)
         }
 
         // Botón Limpiar

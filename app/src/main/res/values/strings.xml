@@ -8,7 +8,7 @@
     <string name="desc_imglogo">Logotipo del Club Atlético Cinco Estrellas</string>
     <string name="menu_txt_menuprincipal">Menú Principal</string>
     <string name="login_txt_iniciarSesion">Iniciar sesión</string>
-    <string name="login_txt_ingresesuemail">Ingrese su email y contraseña para iniciar sesión</string>
+    <string name="login_txt_ingresesuemail">Ingrese su email y contraseña para iniciar sesión\n\n(admin/1234)</string>
     <string name="txt_continuar">Continuar</string>
     <string name="login_txt_correo">Correo electrónico</string>
     <string name="login_txt_contrasena">Contraseña</string>

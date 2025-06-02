@@ -31,6 +31,19 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
             )""".trimIndent()
         )
 
+        db.execSQL(
+            """
+            CREATE TABLE noSocio(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT,
+            apellido TEXT,
+            dni INTEGER UNIQUE,
+            fechaNacimiento TEXT, 
+            fechaInscripcion TEXT,
+            entregoAptoFisico INTEGER 
+            )""".trimIndent()
+        )
+
         db.execSQL("INSERT INTO usuario (nombre, pass) values ('admin', '1234')")
         db.execSQL("INSERT INTO usuario (nombre, pass) values ('admin2', '12345678')")
     }
@@ -49,7 +62,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         return exists
     }
 
-    fun insertarSocio(
+    fun insertarPersona(
+        tabla: String,
         nombre: String,
         apellido: String,
         dni: Int,
@@ -66,8 +80,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
             put("fechaInscripcion", fechaInscripcion)
             put("entregoAptoFisico", entregoAptoFisico)
         }
-        val resultado = db.insert("socio", null, valores)
+        val resultado = db.insert(tabla, null, valores)
         return resultado != -1L
+    }
+
+    fun existeDniEnTabla(tabla: String, dni: Int): Boolean {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT 1 FROM $tabla WHERE dni = ?", arrayOf(dni.toString()))
+        val existe = cursor.moveToFirst()
+        cursor.close()
+        return existe
     }
 
 
