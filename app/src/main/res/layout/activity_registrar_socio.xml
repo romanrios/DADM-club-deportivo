@@ -41,7 +41,7 @@
                 android:hint="@string/registrarsocio_et_nombre">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_nombre"
+                    android:id="@+id/registrarSocio_et_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName" />
@@ -55,7 +55,7 @@
                 android:hint="@string/apellido">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_apellido"
+                    android:id="@+id/registrarSocio_et_apellido"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName" />
@@ -69,7 +69,7 @@
                 android:hint="@string/dni">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_dni"
+                    android:id="@+id/registrarSocio_et_dni"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -84,7 +84,7 @@
                 android:hint="@string/fecha_de_nacimiento">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_fecha_nacimiento"
+                    android:id="@+id/registrarSocio_et_fechaNacimiento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -100,7 +100,7 @@
                 android:hint="@string/fecha_de_inscripci_n">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_fecha_inscripcion"
+                    android:id="@+id/registrarSocio_et_fechaInscripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -110,7 +110,7 @@
 
             <!-- Checkbox -->
             <CheckBox
-                android:id="@+id/cb_apto_fisico"
+                android:id="@+id/registrarSocio_cb_aptoFisico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -126,7 +126,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/registrarsocio_btn_aceptar"
+                    android:id="@+id/registrarSocio_btn_aceptar"
                     style="@style/ButtonStyle"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -134,7 +134,7 @@
                     android:layout_marginEnd="8dp"/>
 
                 <Button
-                    android:id="@+id/btn_limpiar"
+                    android:id="@+id/registrarSocio_btn_limpiar"
                     style="@style/ButtonStyle"
                     android:layout_width="0dp"
                     android:layout_weight="1"

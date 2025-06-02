@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/logo_texto" />
 
     <Button
-        android:id="@+id/menu_btn_continuar"
+        android:id="@+id/login_btn_continuar"
         style="@style/ButtonStyle"
         android:layout_marginBottom="50dp"
         android:text="@string/txt_continuar"

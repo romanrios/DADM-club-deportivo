@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Club Atlético Cinco Estrellas</string>
+    <string name="app_name">Club Deportivo</string>
     <string name="menu_btn_registrarsocio">Registrar Socio</string>
     <string name="btn_registrarNoSocio">Registrar No Socio</string>
     <string name="menu_btn_listarvencimientos">Listar Vencimientos</string>

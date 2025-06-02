@@ -25,11 +25,11 @@ class RegistrarNoSocioActivity : BaseActivity() {
 
         setupToolbarNavigation()
 
-        setNavigationButton(R.id.registrarnosocio_btn_aceptar, OperacionExitosaActivity::class.java)
+        setNavigationButton(R.id.registrarNoSocio_btn_aceptar, OperacionExitosaActivity::class.java)
 
         // Lógica para los campos de fecha
-        val etFechaNacimiento = findViewById<EditText>(R.id.et_fecha_nacimiento)
-        val etFechaInscripcion = findViewById<EditText>(R.id.et_fecha_inscripcion)
+        val etFechaNacimiento = findViewById<EditText>(R.id.registrarNoSocio_et_fechaNacimiento)
+        val etFechaInscripcion = findViewById<EditText>(R.id.registrarNoSocio_et_fechaInscripcion)
 
         // Establecer fecha actual como valor por defecto
         val fechaActual = Calendar.getInstance().time
