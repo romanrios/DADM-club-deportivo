@@ -25,43 +25,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".ui.MenuActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegistrarSocioActivity"
+            android:name=".ui.RegistrarSocioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegistrarNoSocioActivity"
+            android:name=".ui.RegistrarNoSocioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GenerarCarnetActivity"
+            android:name=".ui.GenerarCarnetActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CarnetActivity"
+            android:name=".ui.CarnetActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PagarCuotaActivity"
+            android:name=".ui.PagarCuotaActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ReciboActivity"
+            android:name=".ui.ReciboActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".VencimientosActivity"
+            android:name=".ui.VencimientosActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".OperacionExitosaActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".EjemploActivity"
+            android:name=".ui.OperacionExitosaActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
     </application>

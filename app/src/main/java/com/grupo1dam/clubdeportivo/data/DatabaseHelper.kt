@@ -1,4 +1,4 @@
-package com.grupo1dam.clubdeportivo.utils
+package com.grupo1dam.clubdeportivo.data
 
 import android.content.ContentValues
 import android.content.Context
@@ -20,28 +20,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
 
         db.execSQL(
             """
-            CREATE TABLE socio(
+            CREATE TABLE cliente (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT,
             apellido TEXT,
             dni INTEGER UNIQUE,
-            fechaNacimiento TEXT, 
+            fechaNacimiento TEXT,
             fechaInscripcion TEXT,
-            entregoAptoFisico INTEGER 
-            )""".trimIndent()
-        )
-
-        db.execSQL(
-            """
-            CREATE TABLE noSocio(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombre TEXT,
-            apellido TEXT,
-            dni INTEGER UNIQUE,
-            fechaNacimiento TEXT, 
-            fechaInscripcion TEXT,
-            entregoAptoFisico INTEGER 
-            )""".trimIndent()
+            entregoAptoFisico INTEGER,
+            tipo TEXT CHECK(tipo IN ('socio', 'noSocio')) NOT NULL
+        )""".trimIndent()
         )
 
         db.execSQL("INSERT INTO usuario (nombre, pass) values ('admin', '1234')")
@@ -62,8 +50,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         return exists
     }
 
-    fun insertarPersona(
-        tabla: String,
+    fun insertarCliente(
+        tipo: String, // "socio" o "noSocio"
         nombre: String,
         apellido: String,
         dni: Int,
@@ -79,17 +67,40 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
             put("fechaNacimiento", fechaNacimiento)
             put("fechaInscripcion", fechaInscripcion)
             put("entregoAptoFisico", entregoAptoFisico)
+            put("tipo", tipo)
         }
-        val resultado = db.insert(tabla, null, valores)
+        val resultado = db.insert("cliente", null, valores)
         return resultado != -1L
     }
 
-    fun existeDniEnTabla(tabla: String, dni: Int): Boolean {
+    fun existeDni(dni: Int): Boolean {
         val db = readableDatabase
-        val cursor = db.rawQuery("SELECT 1 FROM $tabla WHERE dni = ?", arrayOf(dni.toString()))
+        val cursor = db.rawQuery("SELECT 1 FROM cliente WHERE dni = ?", arrayOf(dni.toString()))
         val existe = cursor.moveToFirst()
         cursor.close()
         return existe
+    }
+
+    fun obtenerClientesPorTipo(tipo: String): List<Cliente> {
+        val lista = mutableListOf<Cliente>()
+        val db = readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT id, nombre, apellido, fechaInscripcion FROM cliente WHERE tipo = ?",
+            arrayOf(tipo)
+        )
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(0)
+                val nombre = cursor.getString(1)
+                val apellido = cursor.getString(2)
+                val fechaInscripcion = cursor.getString(3)
+                lista.add(Cliente(id, nombre, apellido, fechaInscripcion))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        return lista
     }
 
 

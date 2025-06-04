@@ -1,11 +1,12 @@
-package com.grupo1dam.clubdeportivo
+package com.grupo1dam.clubdeportivo.ui
 
 import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.grupo1dam.clubdeportivo.base.BaseActivity
+import com.grupo1dam.clubdeportivo.R
+import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
 
 class ReciboActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

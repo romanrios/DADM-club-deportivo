@@ -11,7 +11,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
-import com.grupo1dam.clubdeportivo.utils.DatabaseHelper
+import com.grupo1dam.clubdeportivo.data.DatabaseHelper
+import com.grupo1dam.clubdeportivo.ui.MenuActivity
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

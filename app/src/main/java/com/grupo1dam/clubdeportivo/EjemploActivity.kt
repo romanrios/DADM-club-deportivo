@@ -9,7 +9,7 @@
 //import android.widget.Toast
 //import androidx.appcompat.app.AppCompatActivity
 //import com.grupo1dam.clubdeportivo.R
-//import com.grupo1dam.clubdeportivo.utils.DatabaseHelper
+//import com.grupo1dam.clubdeportivo.data.DatabaseHelper
 //
 //class EjemploActivity : AppCompatActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,7 @@
 //            val dni = editDNI.text.toString().trim()
 //
 //            if(databaseHelper.insertarSocio(nombre,dni)){
-//                Toast.makeText(this, "Socio agregado", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "com.grupo1dam.clubdeportivo.data.Socio agregado", Toast.LENGTH_SHORT).show()
 //                editNombre.text.clear()
 //                editDNI.text.clear()
 //            } else {

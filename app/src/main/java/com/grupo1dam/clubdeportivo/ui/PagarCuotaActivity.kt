@@ -1,17 +1,18 @@
-package com.grupo1dam.clubdeportivo
+package com.grupo1dam.clubdeportivo.ui
 
+import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.grupo1dam.clubdeportivo.base.BaseActivity
+import com.grupo1dam.clubdeportivo.R
+import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
 
-class OperacionExitosaActivity : BaseActivity() {
+class PagarCuotaActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_operacion_exitosa)
+        setContentView(R.layout.activity_pagar_cuota)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -20,12 +21,7 @@ class OperacionExitosaActivity : BaseActivity() {
 
         setupToolbarNavigation()
 
-        val btnContinuar = findViewById<Button>(R.id.operacionexitosa_btn_continuar)
-
-        btnContinuar.setOnClickListener {
-            finish()
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-        }
+        setNavigationButton(R.id.pagarcuota_btn_pagar, ReciboActivity::class.java)
 
     }
 }

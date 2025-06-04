@@ -50,7 +50,7 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/menu_btn_continuar"
+        android:id="@+id/menu_btn_registrarSocio"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="40dp"
@@ -74,10 +74,10 @@
         android:text="@string/menu_btn_pagarcuota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_listarVencimientos" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_btn_listarVencimientos" />
 
     <Button
-        android:id="@+id/btn_listarVencimientos"
+        android:id="@+id/menu_btn_listarVencimientos"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
@@ -87,33 +87,33 @@
         android:text="@string/menu_btn_listarvencimientos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_registrarNoSocio" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_btn_registrarNoSocio" />
 
     <Button
-        android:id="@+id/btn_generarCarnet"
+        android:id="@+id/menu_btn_generarCarnet"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/star_icon"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
-        android:text="@string/btn_generarCarnet"
+        android:text="@string/menu_btn_generarCarnet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_btn_pagarcuota" />
 
     <Button
-        android:id="@+id/btn_registrarNoSocio"
+        android:id="@+id/menu_btn_registrarNoSocio"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/star_icon"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
-        android:text="@string/btn_registrarNoSocio"
+        android:text="@string/menu_btn_registrarNoSocio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_btn_continuar" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_btn_registrarSocio" />
 
     <TextView
         android:id="@+id/menu_txt_menuprincipal"

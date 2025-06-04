@@ -1,34 +1,42 @@
 <resources>
     <string name="app_name">Club Deportivo</string>
-    <string name="menu_btn_registrarsocio">Registrar Socio</string>
-    <string name="btn_registrarNoSocio">Registrar No Socio</string>
-    <string name="menu_btn_listarvencimientos">Listar Vencimientos</string>
-    <string name="menu_btn_pagarcuota">Pagar Cuota</string>
-    <string name="btn_generarCarnet">Generar Carnet</string>
-    <string name="desc_imglogo">Logotipo del Club Atlético Cinco Estrellas</string>
-    <string name="menu_txt_menuprincipal">Menú Principal</string>
+
     <string name="login_txt_iniciarSesion">Iniciar sesión</string>
     <string name="login_txt_ingresesuemail">Ingrese su email y contraseña para iniciar sesión\n\n(admin/1234)</string>
-    <string name="txt_continuar">Continuar</string>
     <string name="login_txt_correo">Correo electrónico</string>
     <string name="login_txt_contrasena">Contraseña</string>
-    <string name="registrar_socio">REGISTRAR SOCIO</string>
+    <string name="txt_continuar">Continuar</string>
+    <string name="desc_imglogo">Logotipo del Club Atlético Cinco Estrellas</string>
+
+    <string name="menu_txt_menuprincipal">Menú Principal</string>
+    <string name="menu_btn_registrarsocio">Registrar Socio</string>
+    <string name="menu_btn_registrarNoSocio">Registrar No Socio</string>
+    <string name="menu_btn_listarvencimientos">Listar Vencimientos</string>
+    <string name="menu_btn_pagarcuota">Pagar Cuota</string>
+    <string name="menu_btn_generarCarnet">Generar Carnet</string>
+    <string name="menu_txt_cerrarsesion">Cerrar sesión</string>
+
+    <string name="registrarCliente_txt_registrarCliente">Registrar Cliente</string>
+    <string name="registrarCliente_txt_registrarSocio">Registrar Socio</string>
+    <string name="registrarCliente_txt_registrarNoSocio">Registrar No Socio</string>
+    <string name="registrarCliente_et_nombre">Nombre</string>
+    <string name="registrarCliente_et_apellido">Apellido</string>
+    <string name="registrarCliente_et_dni">DNI</string>
+    <string name="registrarCliente_et_fechaNacimiento">Fecha de nacimiento</string>
+    <string name="registrarCliente_et_fechaInscripcion">Fecha de inscripción</string>
+    <string name="registrarCliente_cb_entregoAptoFisico">Entregó apto físico</string>
+    <string name="registrarCliente_btn_aceptar">Aceptar</string>
+    <string name="registrarCliente_btn_limpiar">Limpiar</string>
+
+    <string name="vencimientos_txt_title">Vencimientos</string>
+    <string name="vencimientos_btn_continuar">Continuar</string>
+
     <string name="pagarcuota_et_dni">DNI de Socio</string>
-    <string name="estado">Estado</string>
-    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
-    <string name="fecha_de_inscripci_n">Fecha de inscripción</string>
-    <string name="aceptar">Aceptar</string>
-    <string name="limpiar">Limpiar</string>
-    <string name="apellido">Apellido</string>
-    <string name="dni">DNI</string>
-    <string name="entreg_apto_f_sico">Entregó apto físico</string>
-    <string name="registrar_no_socio">Registrar No Socio</string>
     <string name="pagarcuota_btn_pagar">Pagar</string>
     <string name="pagarcuota_txt_title">Pagar Cuota</string>
     <string name="pagarcuota_rb_tarjeta">Tarjeta</string>
     <string name="pagarcuota_rb_efectivo">Efectivo</string>
-    <string name="generarcarnet_txt_title">Generar Carnet</string>
-    <string name="generarcarnet_btn_generar">Generar</string>
+
     <string name="recibo_btn_imprimir">Imprimir</string>
     <string name="recibo_txt_fecha"><b>Fecha</b>: 03/04/2025</string>
     <string name="recibo_txt_dni"><b>DNI</b>: 38258692</string>
@@ -36,19 +44,17 @@
     <string name="recibo_txt_formadepago"><b>Forma de pago</b>: Tarjeta</string>
     <string name="recibo_txt_monto"><b>Monto</b>: $30.000</string>
     <string name="recibo_txt_title">Recibo</string>
-    <string name="registrarnosocio_et_nombre">Nombre</string>
-    <string name="registrarsocio_et_nombre">Nombre</string>
+
+    <string name="generarcarnet_txt_title">Generar Carnet</string>
+    <string name="generarcarnet_btn_generar">Generar</string>
+
+    <string name="carnet_txt_title">Carnet</string>
+    <string name="carnet_txt_dni"><b>DNI</b>: 32.123.654</string>
+    <string name="carnet_txt_ndesocio"><b>N° de com.grupo1dam.clubdeportivo.data.Socio</b>: 00127</string>
+    <string name="carnet_txt_fechadeinscripcion"><b>Fecha de inscripción</b>: 03/03/2023</string>
+    <string name="carnet_btn_imprimir">Imprimir</string>
+
     <string name="operacionexitosa_btn_continuar">Continuar</string>
     <string name="operacionexitosa_txt_operacionexitosa">Operación exitosa</string>
     <string name="operacionexitosa_desc_iconocorrecto">Ícono de operación exitosa</string>
-    <string name="carnet_txt_title">Carnet</string>
-    <string name="carnet_txt_dni"><b>DNI</b>: 32.123.654</string>
-    <string name="carnet_txt_ndesocio"><b>N° de Socio</b>: 00127</string>
-    <string name="carnet_txt_fechadeinscripcion"><b>Fecha de inscripción</b>: 03/03/2023</string>
-    <string name="carnet_btn_imprimir">Imprimir</string>
-    <string name="vencimientos_txt_title">Vencimientos</string>
-    <string name="vencimientos_btn_continuar">Continuar</string>
-    <string name="menu_txt_cerrarsesion">Cerrar sesión</string>
-
-
 </resources>

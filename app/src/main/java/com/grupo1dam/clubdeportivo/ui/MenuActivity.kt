@@ -1,4 +1,4 @@
-package com.grupo1dam.clubdeportivo
+package com.grupo1dam.clubdeportivo.ui
 
 import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.grupo1dam.clubdeportivo.R
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,11 +20,11 @@ class MenuActivity : AppCompatActivity() {
             insets
         }
 
-        setNavigationButton(R.id.menu_btn_continuar, RegistrarSocioActivity::class.java, "forward",false)
-        setNavigationButton(R.id.btn_registrarNoSocio, RegistrarNoSocioActivity::class.java,"forward", false)
-        setNavigationButton(R.id.btn_listarVencimientos, VencimientosActivity::class.java,"forward", false)
+        setNavigationButton(R.id.menu_btn_registrarSocio, RegistrarSocioActivity::class.java, "forward",false)
+        setNavigationButton(R.id.menu_btn_registrarNoSocio, RegistrarNoSocioActivity::class.java,"forward", false)
+        setNavigationButton(R.id.menu_btn_listarVencimientos, VencimientosActivity::class.java,"forward", false)
         setNavigationButton(R.id.menu_btn_pagarcuota, PagarCuotaActivity::class.java,"forward", false)
-        setNavigationButton(R.id.btn_generarCarnet, GenerarCarnetActivity::class.java,"forward", false)
+        setNavigationButton(R.id.menu_btn_generarCarnet, GenerarCarnetActivity::class.java,"forward", false)
 
         findViewById<TextView>(R.id.menu_txt_cerrarsesion).setOnClickListener {
             finish()

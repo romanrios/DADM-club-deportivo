@@ -10,8 +10,6 @@
     <!-- Toolbar reutilizable -->
     <include layout="@layout/toolbar" />
 
-
-    <!-- Contenido scrollable -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,21 +24,21 @@
             android:paddingBottom="80dp"
             android:showDividers="middle">
 
-            <!-- Título -->
+            <!-- Título (cambiar dinámicamente) -->
             <TextView
-                android:id="@+id/txt_titleRegistrarSocio"
+                android:id="@+id/registrarCliente_txt_title"
                 style="@style/TitleStyle"
-                android:text="@string/registrar_no_socio" />
+                android:text="@string/registrarCliente_txt_registrarCliente" />
 
             <!-- Campo Nombre -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/registrarnosocio_et_nombre">
+                android:hint="@string/registrarCliente_et_nombre">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registrarNoSocio_et_nombre"
+                    android:id="@+id/registrarCliente_et_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName" />
@@ -51,10 +49,10 @@
                 style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/apellido">
+                android:hint="@string/registrarCliente_et_apellido">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registrarNoSocio_et_apellido"
+                    android:id="@+id/registrarCliente_et_apellido"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName" />
@@ -65,10 +63,10 @@
                 style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dni">
+                android:hint="@string/registrarCliente_et_dni">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registrarNoSocio_et_dni"
+                    android:id="@+id/registrarCliente_et_dni"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -79,10 +77,10 @@
                 style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/fecha_de_nacimiento">
+                android:hint="@string/registrarCliente_et_fechaNacimiento">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registrarNoSocio_et_fechaNacimiento"
+                    android:id="@+id/registrarCliente_et_fechaNacimiento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -95,10 +93,10 @@
                 style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/fecha_de_inscripci_n">
+                android:hint="@string/registrarCliente_et_fechaInscripcion">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registrarNoSocio_et_fechaInscripcion"
+                    android:id="@+id/registrarCliente_et_fechaInscripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -108,11 +106,11 @@
 
             <!-- Checkbox -->
             <CheckBox
-                android:id="@+id/registrarNoSocio_cb_aptoFisico"
+                android:id="@+id/registrarCliente_cb_aptoFisico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/entreg_apto_f_sico"/>
+                android:text="@string/registrarCliente_cb_entregoAptoFisico"/>
 
             <!-- Botones -->
             <LinearLayout
@@ -124,24 +122,22 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/registrarNoSocio_btn_aceptar"
+                    android:id="@+id/registrarCliente_btn_aceptar"
                     style="@style/ButtonStyle"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/aceptar"
+                    android:text="@string/registrarCliente_btn_aceptar"
                     android:layout_marginEnd="8dp"/>
 
                 <Button
-                    android:id="@+id/registrarNoSocio_btn_limpiar"
+                    android:id="@+id/registrarCliente_btn_limpiar"
                     style="@style/ButtonStyle"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/limpiar"
+                    android:text="@string/registrarCliente_btn_limpiar"
                     android:layout_marginStart="8dp"/>
             </LinearLayout>
 
         </LinearLayout>
-
     </ScrollView>
-
 </LinearLayout>

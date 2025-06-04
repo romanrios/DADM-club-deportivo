@@ -1,17 +1,18 @@
-package com.grupo1dam.clubdeportivo
+package com.grupo1dam.clubdeportivo.ui
 
 import com.grupo1dam.clubdeportivo.utils.setNavigationButton
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.grupo1dam.clubdeportivo.base.BaseActivity
+import com.grupo1dam.clubdeportivo.R
+import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
 
-class PagarCuotaActivity : BaseActivity() {
+class GenerarCarnetActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_pagar_cuota)
+        setContentView(R.layout.activity_generar_carnet)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -20,7 +21,7 @@ class PagarCuotaActivity : BaseActivity() {
 
         setupToolbarNavigation()
 
-        setNavigationButton(R.id.pagarcuota_btn_pagar, ReciboActivity::class.java)
+        setNavigationButton(R.id.generarcarnet_btn_generar, CarnetActivity::class.java)
 
     }
 }

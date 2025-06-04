@@ -1,4 +1,4 @@
-package com.grupo1dam.clubdeportivo
+package com.grupo1dam.clubdeportivo.ui
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -7,7 +7,9 @@ import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.grupo1dam.clubdeportivo.base.BaseActivity
+import com.grupo1dam.clubdeportivo.R
+import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
+import com.grupo1dam.clubdeportivo.data.DatabaseHelper
 
 class VencimientosActivity : BaseActivity() {
 
@@ -28,27 +30,23 @@ class VencimientosActivity : BaseActivity() {
 
         findViewById<Button>(R.id.vencimientos_btn_continuar).setOnClickListener {
             finish()
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
 
 
-        // 1. Referencia al ListView
+        // Referencia al ListView
         val listView = findViewById<ListView>(R.id.vencimientoslv)
 
-        // 2. Datos de ejemplo
-        val usuarios = listOf(
-            "Daniel Ignacio Córdoba",
-            "Mariela Belén Giménez",
-            "Cecilia Daniela Gómez",
-            "Eugenia Lucchelli",
-            "Román Ríos",
-            "Kevin Axel Del Bello"
-        )
+        val dbHelper = DatabaseHelper(this)
+        val socios = dbHelper.obtenerClientesPorTipo("socio")
 
-        // 3. Adaptador
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, usuarios)
+        // Convertir a un texto amigable para mostrar
+        val listaTexto = socios.map { socio ->
+            "ID: ${socio.id}\n${socio.nombre} ${socio.apellido}\nInscripción: ${socio.fechaInscripcion}"
+        }
 
-        // 4. Asignar adaptador al ListView
+        // Adaptador simple para mostrar texto formateado
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaTexto)
         listView.adapter = adapter
 
     }
