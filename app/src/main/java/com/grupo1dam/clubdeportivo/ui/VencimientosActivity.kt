@@ -13,6 +13,8 @@ import com.grupo1dam.clubdeportivo.data.DatabaseHelper
 
 class VencimientosActivity : BaseActivity() {
 
+    private lateinit var dbHelper: DatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,11 +35,15 @@ class VencimientosActivity : BaseActivity() {
             this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
 
+        dbHelper = DatabaseHelper(this)
 
-        // Referencia al ListView
-        val listView = findViewById<ListView>(R.id.vencimientoslv)
+        mostrarSocios()
 
-        val dbHelper = DatabaseHelper(this)
+    }
+
+    // función mostrada en clase jueves 5/6/2025
+    private fun mostrarSocios() {
+        val listView = findViewById<ListView>(R.id.vencimientos_listview)
         val socios = dbHelper.obtenerClientesPorTipo("socio")
 
         // Convertir a un texto amigable para mostrar
@@ -48,6 +54,5 @@ class VencimientosActivity : BaseActivity() {
         // Adaptador simple para mostrar texto formateado
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaTexto)
         listView.adapter = adapter
-
     }
 }

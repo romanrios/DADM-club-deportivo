@@ -81,12 +81,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         return existe
     }
 
+    // Función mostrada en clase del jueves 5/6/2025
     fun obtenerClientesPorTipo(tipo: String): List<Cliente> {
         val lista = mutableListOf<Cliente>()
         val db = readableDatabase
         val cursor = db.rawQuery(
             "SELECT id, nombre, apellido, fechaInscripcion FROM cliente WHERE tipo = ?",
-            arrayOf(tipo)
+            arrayOf(tipo) // si no hubiera argumentos este segundo param puede ser null
         )
 
         if (cursor.moveToFirst()) {
