@@ -22,9 +22,9 @@ class MenuActivity : AppCompatActivity() {
 
         setNavigationButton(R.id.menu_btn_registrarSocio, RegistrarSocioActivity::class.java, "forward",false)
         setNavigationButton(R.id.menu_btn_registrarNoSocio, RegistrarNoSocioActivity::class.java,"forward", false)
-        setNavigationButton(R.id.menu_btn_listarVencimientos, VencimientosActivity::class.java,"forward", false)
+        setNavigationButton(R.id.menu_btn_vencimientos, VencimientosActivity::class.java,"forward", false)
         setNavigationButton(R.id.menu_btn_pagarcuota, PagarCuotaActivity::class.java,"forward", false)
-        setNavigationButton(R.id.menu_btn_generarCarnet, GenerarCarnetActivity::class.java,"forward", false)
+        setNavigationButton(R.id.menu_btn_generarCarnet, CarnetActivity::class.java,"forward", false)
 
         findViewById<TextView>(R.id.menu_txt_cerrarsesion).setOnClickListener {
             finish()

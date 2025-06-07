@@ -4,12 +4,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <!-- Toolbar reutilizable -->
     <include layout="@layout/toolbar" />
-
 
     <!-- Contenido scrollable -->
     <ScrollView
@@ -20,73 +19,72 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:divider="@drawable/space_18dp"
             android:orientation="vertical"
+            android:layout_marginHorizontal="24dp"
             android:paddingBottom="80dp"
-            android:showDividers="middle" >
+            android:divider="@drawable/space_18dp"
+            android:showDividers="middle">
 
             <!-- Título -->
             <TextView
-                android:id="@+id/txt_titleRegistrarSocio"
+                android:id="@+id/carnet_txt_title"
                 style="@style/TitleStyle"
-                android:text="@string/carnet_txt_title"/>
+                android:text="@string/carnet_txt_title" />
 
-            <!-- Campo Nombre -->
-
-            <androidx.cardview.widget.CardView
+            <!-- Campo DNI -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/carnet_hint_dni">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/carnet_et_dni"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón Generar -->
+            <Button
+                android:id="@+id/carnet_btn_generar"
+                style="@style/ButtonStyle"
+                android:text="@string/generarcarnet_btn_generar"
+                android:layout_marginTop="12dp" />
+
+            <!-- Carnet (inicialmente oculto) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/carnet_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
                 app:contentPaddingTop="40dp"
                 app:contentPaddingBottom="40dp"
                 app:contentPaddingLeft="16dp"
                 app:contentPaddingRight="16dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginHorizontal="8dp">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/carnet_txt_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:divider="@drawable/space_18dp"
-                    android:orientation="vertical"
-                    android:showDividers="middle">
-
-                    <TextView
-                        android:id="@+id/txtFecha"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/carnet_txt_ndesocio"
-                        android:textColor="@color/blue"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/txtDni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/carnet_txt_dni"
-                        android:textColor="@color/blue"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/txtFechaInscripcion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/carnet_txt_fechadeinscripcion"
-                        android:textColor="@color/blue"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="8dp" />
             </androidx.cardview.widget.CardView>
 
+
+            <!-- Botón Imprimir -->
             <Button
                 android:id="@+id/carnet_btn_imprimir"
                 style="@style/ButtonStyle"
                 android:text="@string/carnet_btn_imprimir"
-                android:layout_marginTop="12dp"/>
-
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
         </LinearLayout>
 
     </ScrollView>
-
 </LinearLayout>

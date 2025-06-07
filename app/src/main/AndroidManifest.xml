@@ -37,10 +37,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.GenerarCarnetActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.CarnetActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

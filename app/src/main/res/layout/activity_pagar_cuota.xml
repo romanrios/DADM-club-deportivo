@@ -39,7 +39,7 @@
                 style="@style/TextFieldStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/pagarcuota_et_dni">
+                android:hint="@string/carnet_hint_dni">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_pagarcuota_dni"
@@ -49,6 +49,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

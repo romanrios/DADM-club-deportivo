@@ -151,7 +151,7 @@ abstract class RegistrarClienteBaseActivity : BaseActivity() {
             .setMessage("¿Deseás guardar los siguientes datos?\n\n$resumen")
             .setPositiveButton("Sí") { _, _ ->
                 val insertado = db.insertarCliente(
-                    tipoCliente, nombre, apellido, dni, fechaNacimiento, fechaInscripcion, aptoFisico
+                   nombre, apellido, dni, fechaNacimiento, fechaInscripcion, aptoFisico, tipoCliente
                 )
                 if (insertado) {
                     Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()

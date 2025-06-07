@@ -74,10 +74,10 @@
         android:text="@string/menu_btn_pagarcuota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_btn_listarVencimientos" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_btn_vencimientos" />
 
     <Button
-        android:id="@+id/menu_btn_listarVencimientos"
+        android:id="@+id/menu_btn_vencimientos"
         style="@style/ButtonStyle"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="24dp"

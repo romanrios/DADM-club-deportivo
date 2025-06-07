@@ -4,10 +4,19 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", null, 1) {
 
-    override fun onCreate(db: SQLiteDatabase) {
+    // Habilitar foreign keys
+    override fun onConfigure(db: SQLiteDatabase) {
+        super.onConfigure(db)
+        db.setForeignKeyConstraintsEnabled(true)
+    }
+
+        override fun onCreate(db: SQLiteDatabase) {
 
         db.execSQL(
             """
@@ -32,6 +41,21 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         )""".trimIndent()
         )
 
+        db.execSQL(
+            """
+            CREATE TABLE cuota (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                idCliente INTEGER,
+                nroCuota INTEGER,
+                formaPago TEXT,
+                fechaPago TEXT,
+                fechaVencimiento TEXT,
+                FOREIGN KEY(idCliente) REFERENCES cliente(id) ON DELETE CASCADE
+            )
+            """.trimIndent()
+        )
+        // ON DELETE CASCADE: si se borra un cliente también se borren sus cuotas
+
         db.execSQL("INSERT INTO usuario (nombre, pass) values ('admin', '1234')")
         db.execSQL("INSERT INTO usuario (nombre, pass) values ('admin2', '12345678')")
     }
@@ -51,13 +75,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
     }
 
     fun insertarCliente(
-        tipo: String, // "socio" o "noSocio"
         nombre: String,
         apellido: String,
         dni: Int,
         fechaNacimiento: String,
         fechaInscripcion: String,
-        entregoAptoFisico: Int
+        entregoAptoFisico: Int,
+        tipo: String
     ): Boolean {
         val db = writableDatabase
         val valores = ContentValues().apply {
@@ -86,22 +110,81 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         val lista = mutableListOf<Cliente>()
         val db = readableDatabase
         val cursor = db.rawQuery(
-            "SELECT id, nombre, apellido, fechaInscripcion FROM cliente WHERE tipo = ?",
+            "SELECT * FROM cliente WHERE tipo = ?",
             arrayOf(tipo) // si no hubiera argumentos este segundo param puede ser null
         )
 
         if (cursor.moveToFirst()) {
             do {
-                val id = cursor.getInt(0)
-                val nombre = cursor.getString(1)
-                val apellido = cursor.getString(2)
-                val fechaInscripcion = cursor.getString(3)
-                lista.add(Cliente(id, nombre, apellido, fechaInscripcion))
+                val cliente = Cliente(
+                    id = cursor.getInt(0),
+                    nombre = cursor.getString(1),
+                    apellido = cursor.getString(2),
+                    dni = cursor.getInt(3),
+                    fechaNacimiento = cursor.getString(4),
+                    fechaInscripcion = cursor.getString(5),
+                    entregoAptoFisico = cursor.getInt(6),
+                    tipo = cursor.getString(7)
+                )
+                lista.add(cliente)
             } while (cursor.moveToNext())
         }
 
         cursor.close()
         return lista
+    }
+
+
+    //PARA PAGAR CUOTA __ REVISAR!!!
+    fun obtenerClientePorDni(dni: Int): Cliente? {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM cliente WHERE dni = ?", arrayOf(dni.toString()))
+        var cliente: Cliente? = null
+        if (cursor.moveToFirst()) {
+            cliente = Cliente(
+                id = cursor.getInt(0),
+                nombre = cursor.getString(1),
+                apellido = cursor.getString(2),
+                dni = cursor.getInt(3),
+                fechaNacimiento = cursor.getString(4),
+                fechaInscripcion = cursor.getString(5),
+                entregoAptoFisico = cursor.getInt(6),
+                tipo = cursor.getString(7)
+            )
+        }
+        cursor.close()
+        return cliente
+    }
+
+    fun noSocioYaPagoHoy(clienteId: Int): Boolean {
+        val db = readableDatabase
+        val hoy = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        val cursor = db.rawQuery("SELECT 1 FROM cuota WHERE idCliente = ? AND fechaPago = ?", arrayOf(clienteId.toString(), hoy))
+        val existe = cursor.moveToFirst()
+        cursor.close()
+        return existe
+    }
+
+    fun socioYaPagoEsteMes(clienteId: Int): Boolean {
+        val db = readableDatabase
+        val sdf = SimpleDateFormat("yyyy-MM", Locale.getDefault())
+        val mesActual = sdf.format(Date()) + "%"
+        val cursor = db.rawQuery("SELECT 1 FROM cuota WHERE idCliente = ? AND fechaPago LIKE ?", arrayOf(clienteId.toString(), mesActual))
+        val existe = cursor.moveToFirst()
+        cursor.close()
+        return existe
+    }
+
+    fun registrarCuota(idCliente: Int, nroCuota: Int, formaPago: String, fechaPago: String, fechaVencimiento: String): Boolean {
+        val db = writableDatabase
+        val valores = ContentValues().apply {
+            put("idCliente", idCliente)
+            put("nroCuota", nroCuota)
+            put("formaPago", formaPago)
+            put("fechaPago", fechaPago)
+            put("fechaVencimiento", fechaVencimiento)
+        }
+        return db.insert("cuota", null, valores) != -1L
     }
 
 
