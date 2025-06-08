@@ -52,7 +52,7 @@
     <string name="carnet_txt_dni"><b>DNI</b>: 32.123.654</string>
     <string name="carnet_txt_ndesocio"><b>N° Socio</b>: 00127</string>
     <string name="carnet_txt_fechadeinscripcion"><b>Fecha de inscripción</b>: 03/03/2023</string>
-    <string name="carnet_btn_imprimir">Imprimir</string>
+    <string name="carnet_btn_descargar">Descargar PDF</string>
 
     <string name="operacionexitosa_btn_continuar">Continuar</string>
     <string name="operacionexitosa_txt_operacionexitosa">Operación exitosa</string>

@@ -81,7 +81,7 @@
             <Button
                 android:id="@+id/carnet_btn_imprimir"
                 style="@style/ButtonStyle"
-                android:text="@string/carnet_btn_imprimir"
+                android:text="@string/carnet_btn_descargar"
                 android:layout_marginTop="12dp"
                 android:visibility="gone" />
         </LinearLayout>
