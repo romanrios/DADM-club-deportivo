@@ -45,10 +45,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.ReciboActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.VencimientosActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

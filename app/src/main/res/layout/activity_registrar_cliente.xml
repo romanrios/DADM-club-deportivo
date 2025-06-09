@@ -41,7 +41,8 @@
                     android:id="@+id/registrarCliente_et_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:maxLength="25" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Campo Apellido -->
@@ -55,7 +56,8 @@
                     android:id="@+id/registrarCliente_et_apellido"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:maxLength="20" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Campo DNI -->
@@ -69,7 +71,8 @@
                     android:id="@+id/registrarCliente_et_dni"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="8" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Fecha de nacimiento -->

@@ -78,6 +78,7 @@
         android:textColor="@android:color/black"
         android:textColorHint="@color/grey"
         android:textSize="16sp"
+        android:maxLength="30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +112,9 @@
             android:paddingBottom="12dp"
             android:textColor="@android:color/black"
             android:textColorHint="@color/grey"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:maxLength="25"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

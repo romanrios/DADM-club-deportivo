@@ -33,6 +33,7 @@ abstract class RegistrarClienteBaseActivity : BaseActivity() {
     private lateinit var cbAptoFisico: CheckBox
     private lateinit var btnAceptar: Button
     private lateinit var btnLimpiar: Button
+    private val fechaDeHoy = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time)
 
     // Acceso a base de datos
     private lateinit var db: DatabaseHelper
@@ -70,9 +71,7 @@ abstract class RegistrarClienteBaseActivity : BaseActivity() {
         btnLimpiar = findViewById(R.id.registrarCliente_btn_limpiar)
 
         // Fecha de inscripción por defecto: hoy
-        etFechaInscripcion.setText(
-            SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time)
-        )
+        etFechaInscripcion.setText(fechaDeHoy)
 
         // Mostrar DatePicker al hacer clic en los campos de fecha
         etFechaNacimiento.setOnClickListener {
@@ -93,7 +92,7 @@ abstract class RegistrarClienteBaseActivity : BaseActivity() {
         etApellido.text.clear()
         etDni.text.clear()
         etFechaNacimiento.text.clear()
-        etFechaInscripcion.text.clear()
+        etFechaInscripcion.setText(fechaDeHoy)
         cbAptoFisico.isChecked = false
     }
 

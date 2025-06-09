@@ -57,4 +57,5 @@
     <string name="operacionexitosa_btn_continuar">Continuar</string>
     <string name="operacionexitosa_txt_operacionexitosa">Operación exitosa</string>
     <string name="operacionexitosa_desc_iconocorrecto">Ícono de operación exitosa</string>
+    <string name="pagarCuota_btn_generarPdf">Generar PDF</string>
 </resources>

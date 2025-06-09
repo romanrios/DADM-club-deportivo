@@ -44,14 +44,18 @@ class VencimientosActivity : BaseActivity() {
     // función mostrada en clase jueves 5/6/2025
     private fun mostrarSocios() {
         val listView = findViewById<ListView>(R.id.vencimientos_listview)
-        val socios = dbHelper.obtenerClientesPorTipo("socio")
+        val socios = dbHelper.obtenerSociosConCuotaVencidaHoy()
 
-        // Convertir a un texto amigable para mostrar
-        val listaTexto = socios.map { socio ->
-            "ID: ${socio.id}\n${socio.nombre} ${socio.apellido}\nInscripción: ${socio.fechaInscripcion}"
+        if (socios.isEmpty()) {
+            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listOf("No hay cuotas vencidas hoy"))
+            listView.adapter = adapter
+            return
         }
 
-        // Adaptador simple para mostrar texto formateado
+        val listaTexto = socios.map { socio ->
+            "DNI: ${socio.dni}\n${socio.nombre} ${socio.apellido}\nInscripción: ${socio.fechaInscripcion}"
+        }
+
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaTexto)
         listView.adapter = adapter
     }
