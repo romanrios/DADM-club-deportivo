@@ -110,7 +110,7 @@
                 android:id="@+id/pagarCuota_btn_generarPdf"
                 style="@style/ButtonStyle"
                 android:layout_marginTop="12dp"
-                android:text="@string/pagarCuota_btn_generarPdf"
+                android:text="@string/pagarCuota_btn_descargarPdf"
                 android:visibility="gone" />
 
         </LinearLayout>
