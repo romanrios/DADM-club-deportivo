@@ -1,4 +1,4 @@
-package com.grupo1dam.clubdeportivo.ui.base
+package com.grupo1dam.clubdeportivo.ui.registro
 
 import android.os.Bundle
 import android.widget.Button
@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.grupo1dam.clubdeportivo.R
 import com.grupo1dam.clubdeportivo.data.DatabaseHelper
+import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
 import com.grupo1dam.clubdeportivo.utils.convertirFecha
 import com.grupo1dam.clubdeportivo.utils.showDatePicker
 import java.text.SimpleDateFormat
