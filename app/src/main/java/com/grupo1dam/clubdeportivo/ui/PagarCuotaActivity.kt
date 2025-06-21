@@ -10,12 +10,12 @@ import com.grupo1dam.clubdeportivo.R
 import com.grupo1dam.clubdeportivo.data.Cliente
 import com.grupo1dam.clubdeportivo.data.Cuota
 import com.grupo1dam.clubdeportivo.data.DatabaseHelper
-import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
+import com.grupo1dam.clubdeportivo.ui.base.BaseToolbarActivity
 import com.grupo1dam.clubdeportivo.utils.generarReciboPagoPdf
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PagarCuotaActivity : BaseActivity() {
+class PagarCuotaActivity : BaseToolbarActivity() {
 
     private lateinit var etDni: TextInputEditText
     private lateinit var btnPagar: Button
@@ -31,7 +31,6 @@ class PagarCuotaActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pagar_cuota)
 
-        setupToolbarNavigation()
         dbHelper = DatabaseHelper(this)
 
         etDni = findViewById(R.id.et_pagarcuota_dni)
@@ -50,11 +49,14 @@ class PagarCuotaActivity : BaseActivity() {
                 generarReciboPagoPdf(
                     context = this,
                     cliente = cliente,
+                    nroRecibo = cuota.id,
+                    tipoCliente = if (cliente.tipo == "socio") "Socio" else "No socio",
+                    tipoCuota = cuota.tipo.capitalize(),
+                    monto = "$${String.format("%.2f", cuota.monto)}",
                     fechaPago = cuota.fechaPago,
                     formaPago = cuota.formaPago,
-                    monto = "$${String.format("%.2f", cuota.monto)}",
-                    tipoCliente = if (cliente.tipo == "socio") "Socio" else "No socio",
-                    tipoCuota = cuota.tipo.capitalize()
+                    nroCuota = cuota.nroCuota,
+                    fechaVencimiento = cuota.fechaVencimiento
                 )
 
             } else {
@@ -144,7 +146,7 @@ class PagarCuotaActivity : BaseActivity() {
             ¿Confirmás el registro del pago?
              """.trimIndent()
         ).setPositiveButton("Confirmar") { _, _ ->
-            val exito = dbHelper.registrarCuota(
+            val idGenerado = dbHelper.registrarCuota(
                 idCliente = cuota.idCliente,
                 nroCuota = cuota.nroCuota,
                 formaPago = cuota.formaPago,
@@ -154,11 +156,12 @@ class PagarCuotaActivity : BaseActivity() {
                 monto = cuota.monto
             )
 
-            if (exito) {
+            if (idGenerado != -1L) {
+                val cuotaConId = cuota.copy(id = idGenerado.toInt()) // Aquí le asignás el id real
                 clienteActual = cliente
-                cuotaActual = cuota
+                cuotaActual = cuotaConId
                 Toast.makeText(this, "Pago registrado con éxito", Toast.LENGTH_LONG).show()
-                mostrarRecibo(cliente, cuota, mostrarPdf = true)
+                mostrarRecibo(cliente, cuotaConId, mostrarPdf = true)
             } else {
                 Toast.makeText(this, "Error al registrar el pago", Toast.LENGTH_LONG).show()
             }
@@ -174,9 +177,11 @@ class PagarCuotaActivity : BaseActivity() {
             lineas.add("<b style='color:#003366;'>$titulo:</b> <span style='font-size:18px;'>$valor</span>")
         }
 
+        linea("Recibo N°", cuota.id.toString().padStart(8, '0'))
+        linea("Fecha", cuota.fechaPago)
         linea("Tipo de cliente", if (esSocio) "Socio" else "No socio")
         linea("Tipo de cuota", cuota.tipo.capitalize())
-        linea("Fecha", cuota.fechaPago)
+        linea("Nombre", "${cliente.nombre} ${cliente.apellido}")
         linea("DNI", cliente.dni.toString())
         linea("Forma de pago", cuota.formaPago)
         linea("Monto", montoFormateado)

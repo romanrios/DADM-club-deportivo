@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.grupo1dam.clubdeportivo.R
 import com.grupo1dam.clubdeportivo.data.DatabaseHelper
-import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
+import com.grupo1dam.clubdeportivo.ui.base.BaseToolbarActivity
 import com.grupo1dam.clubdeportivo.utils.convertirFecha
 import com.grupo1dam.clubdeportivo.utils.showDatePicker
 import java.text.SimpleDateFormat
@@ -20,7 +20,7 @@ import java.util.Calendar
 import java.util.Locale
 
 // Clase base abstracta para registrar clientes (socios o no socios)
-abstract class RegistrarClienteBaseActivity : BaseActivity() {
+abstract class RegistrarClienteBaseActivity : BaseToolbarActivity() {
 
     // Cada subclase define si trabaja con "socio" o "noSocio"
     protected abstract val tipoCliente: String
@@ -58,7 +58,6 @@ abstract class RegistrarClienteBaseActivity : BaseActivity() {
             insets
         }
 
-        setupToolbarNavigation()
         db = DatabaseHelper(this) // Inicializa DB
 
         // Vincular componentes de UI con IDs del layout

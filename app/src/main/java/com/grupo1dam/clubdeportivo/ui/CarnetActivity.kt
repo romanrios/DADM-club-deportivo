@@ -10,10 +10,10 @@ import androidx.cardview.widget.CardView
 import com.google.android.material.textfield.TextInputEditText
 import com.grupo1dam.clubdeportivo.R
 import com.grupo1dam.clubdeportivo.data.DatabaseHelper
-import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
+import com.grupo1dam.clubdeportivo.ui.base.BaseToolbarActivity
 import com.grupo1dam.clubdeportivo.utils.generarCarnetPdf
 
-class CarnetActivity : BaseActivity() {
+class CarnetActivity : BaseToolbarActivity() {
 
     private lateinit var etDni: TextInputEditText
     private lateinit var btnGenerar: Button
@@ -25,8 +25,6 @@ class CarnetActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_carnet)
-
-        setupToolbarNavigation()
 
         etDni = findViewById(R.id.carnet_et_dni)
         btnGenerar = findViewById(R.id.carnet_btn_generar)
@@ -58,7 +56,7 @@ class CarnetActivity : BaseActivity() {
             }
 
             val infoHtml = """
-                <b>ID:</b> ${cliente.id}<br>
+                <b>N° de cliente:</b> ${cliente.id.toString().padStart(8, '0')}<br>
                 <b>DNI:</b> ${cliente.dni}<br>
                 <b>Nombre:</b> ${cliente.nombre} ${cliente.apellido}<br>
                 <b>Fecha de nacimiento:</b> ${cliente.fechaNacimiento}<br>

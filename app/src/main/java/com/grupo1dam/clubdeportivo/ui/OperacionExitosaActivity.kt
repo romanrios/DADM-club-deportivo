@@ -6,9 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.grupo1dam.clubdeportivo.R
-import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
+import com.grupo1dam.clubdeportivo.ui.base.BaseToolbarActivity
 
-class OperacionExitosaActivity : BaseActivity() {
+class OperacionExitosaActivity : BaseToolbarActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -18,8 +18,6 @@ class OperacionExitosaActivity : BaseActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        setupToolbarNavigation()
 
         val btnContinuar = findViewById<Button>(R.id.operacionexitosa_btn_continuar)
 

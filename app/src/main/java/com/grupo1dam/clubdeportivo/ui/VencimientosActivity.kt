@@ -8,10 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.grupo1dam.clubdeportivo.R
-import com.grupo1dam.clubdeportivo.ui.base.BaseActivity
+import com.grupo1dam.clubdeportivo.ui.base.BaseToolbarActivity
 import com.grupo1dam.clubdeportivo.data.DatabaseHelper
 
-class VencimientosActivity : BaseActivity() {
+class VencimientosActivity : BaseToolbarActivity() {
 
     private lateinit var dbHelper: DatabaseHelper
 
@@ -21,14 +21,11 @@ class VencimientosActivity : BaseActivity() {
 
         setContentView(R.layout.activity_vencimientos)
 
-        // Asegurar compatibilidad con los Insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        setupToolbarNavigation()
 
         findViewById<Button>(R.id.vencimientos_btn_continuar).setOnClickListener {
             finish()
@@ -47,13 +44,15 @@ class VencimientosActivity : BaseActivity() {
         val socios = dbHelper.obtenerSociosConCuotaVencidaHoy()
 
         if (socios.isEmpty()) {
-            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listOf("No hay cuotas vencidas hoy"))
+            val adapter = ArrayAdapter(
+                this, android.R.layout.simple_list_item_1, listOf("No hay cuotas vencidas hoy")
+            )
             listView.adapter = adapter
             return
         }
 
         val listaTexto = socios.map { socio ->
-            "DNI: ${socio.dni}\n${socio.nombre} ${socio.apellido}\nInscripción: ${socio.fechaInscripcion}"
+            "${socio.nombre} ${socio.apellido}\nDNI: ${socio.dni}\nFecha de inscripción: ${socio.fechaInscripcion}"
         }
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaTexto)

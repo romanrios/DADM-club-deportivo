@@ -236,13 +236,16 @@ private fun guardarPdfAndroid9(context: Context, pdf: PdfDocument, fileName: Str
 
 // Función para generar PDF de recibo de pago para un cliente
 fun generarReciboPagoPdf(
+    tipoCliente: String,
+    tipoCuota: String,
+    nroRecibo: Int,
     context: Context,
     cliente: Cliente,
     fechaPago: String,
     formaPago: String,
     monto: String,
-    tipoCliente: String,
-    tipoCuota: String
+    nroCuota: Int,
+    fechaVencimiento: String
 ) {
 
     val pdf = PdfDocument()
@@ -250,7 +253,7 @@ fun generarReciboPagoPdf(
     val page = pdf.startPage(pageInfo)
     val canvas = page.canvas
 
-    drawRecibo(canvas, context, cliente, fechaPago, formaPago, monto, tipoCliente, tipoCuota)
+    drawRecibo(canvas, context, nroRecibo, tipoCliente, tipoCuota, cliente, fechaPago, formaPago, monto, nroCuota, fechaVencimiento)
     pdf.finishPage(page)
 
     val fileName = "recibo_pago_${cliente.dni}_${fechaPago.replace("-", "_")}.pdf"
@@ -264,12 +267,15 @@ fun generarReciboPagoPdf(
 private fun drawRecibo(
     canvas: Canvas,
     context: Context,
+    nroRecibo: Int,
+    tipoCliente: String,
+    tipoCuota: String,
     cliente: Cliente,
     fechaPago: String,
     formaPago: String,
     monto: String,
-    tipoCliente: String,
-    tipoCuota: String
+    nroCuota: Int,
+    fechaVencimiento: String
 )
 {
     val azulOscuro = "#003366".toColorInt()
@@ -278,19 +284,50 @@ private fun drawRecibo(
     val centerX = PAGE_WIDTH / 2f
     var y = 40f
 
-    // Título principal
+    // Encabezado - Título a la izquierda
     val paintTitulo = Paint().apply {
         isAntiAlias = true
         color = azulOscuro
         textSize = 20f
         typeface = bebasNeue
-        textAlign = Paint.Align.CENTER
+        textAlign = Paint.Align.LEFT
     }
-    canvas.drawText("RECIBO DE PAGO", centerX, y, paintTitulo)
+    canvas.drawText("RECIBO DE PAGO", 30f, y, paintTitulo)
 
-    y += 40f
-    val labelX = 20f
-    val valueX = 100f
+    // Logo o nombre del club a la derecha
+    // CLUB ATLÉTICO
+    val paintCabecera1 = Paint().apply {
+        isAntiAlias = true
+        color = azulOscuro
+        textSize = 8f
+        typeface = Typeface.DEFAULT
+        textAlign = Paint.Align.RIGHT
+    }
+    canvas.drawText(
+        "CLUB ATLÉTICO",
+        PAGE_WIDTH - 30f,
+        28f, // distancia de margen superior
+        paintCabecera1
+    )
+    // CINCO ESTRELLAS
+    val paintCabecera2 = Paint().apply {
+        isAntiAlias = true
+        color = azulOscuro
+        textSize = 14f
+        typeface = bebasNeue
+        textAlign = Paint.Align.RIGHT
+    }
+    canvas.drawText(
+        "CINCO ESTRELLAS",
+        PAGE_WIDTH - 30f,
+        42f,
+        paintCabecera2
+    )
+
+    y += 30f // incrementamos Y para seguir dibujando el resto del contenido
+
+    val labelX = 30f
+    val valueX = 110f
 
     // Paint para los títulos (DNI:, Nombre:, etc.)
     val paintCampo = Paint().apply {
@@ -314,6 +351,7 @@ private fun drawRecibo(
         y += 20f
     }
 
+    drawFila("N° de recibo:", nroRecibo.toString().padStart(8, '0'))
     drawFila("Tipo de cliente:", tipoCliente)
     drawFila("Tipo de cuota:", tipoCuota)
     drawFila("Fecha de pago:", fechaPago)
@@ -321,8 +359,8 @@ private fun drawRecibo(
     drawFila("Nombre:", "${cliente.nombre} ${cliente.apellido}")
     drawFila("Forma de pago:", formaPago)
     drawFila("Monto:", monto)
-
-
+    drawFila("N° de cuota:", nroCuota.toString())
+    drawFila("Fecha de vencimiento:", fechaVencimiento)
 
     // Nota al final
     val paintNota = Paint().apply {
@@ -330,33 +368,13 @@ private fun drawRecibo(
         color = azulOscuro
         textSize = 7f
         textAlign = Paint.Align.CENTER
-        typeface = Typeface.DEFAULT
+        typeface = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC)
     }
     canvas.drawText(
-        "Gracias por tu pago. Este recibo es válido como comprobante.", centerX, y + 15f, paintNota
+        "Gracias por tu pago. Este recibo es válido como comprobante.", centerX, y + 6f, paintNota
     )
 
-    // Pie institucional
-    val paintPie1 = Paint().apply {
-        isAntiAlias = true
-        color = azulOscuro
-        textSize = 8f
-        textAlign = Paint.Align.CENTER
-        typeface = Typeface.DEFAULT
-    }
 
-    val paintPie2 = Paint().apply {
-        isAntiAlias = true
-        color = azulOscuro
-        textSize = 14f
-        textAlign = Paint.Align.CENTER
-        typeface = bebasNeue
-    }
-
-    val footerY1 = PAGE_HEIGHT - 30f
-    val footerY2 = PAGE_HEIGHT - 15f
-    canvas.drawText("CLUB ATLÉTICO", centerX, footerY1, paintPie1)
-    canvas.drawText("CINCO ESTRELLAS", centerX, footerY2, paintPie2)
 }
 
 

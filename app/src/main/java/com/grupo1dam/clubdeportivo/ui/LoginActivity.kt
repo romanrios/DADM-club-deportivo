@@ -1,4 +1,4 @@
-package com.grupo1dam.clubdeportivo
+package com.grupo1dam.clubdeportivo.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
+import com.grupo1dam.clubdeportivo.R
 import com.grupo1dam.clubdeportivo.data.DatabaseHelper
-import com.grupo1dam.clubdeportivo.ui.MenuActivity
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-
         val databaseHelper = DatabaseHelper(this)
 
         val usuario = findViewById<EditText>(R.id.login_et_correo)
@@ -44,10 +43,10 @@ class LoginActivity : AppCompatActivity() {
             if(databaseHelper.login(usuarioString, passString)){
                 Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this, MenuActivity::class.java)
                 usuario.text.clear()
                 pass.text?.clear()
 
+                val intent = Intent(this, MenuActivity::class.java)
                 startActivity(intent)
 
                 } else {

@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.grupo1dam.clubdeportivo.R
+import com.grupo1dam.clubdeportivo.ui.registro.RegistrarNoSocioActivity
+import com.grupo1dam.clubdeportivo.ui.registro.RegistrarSocioActivity
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

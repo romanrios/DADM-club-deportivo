@@ -145,12 +145,20 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         val fechaHoy =
             SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Calendar.getInstance().time)
 
+        // Obtiene los socios cuya cuota vence hoy y que no tienen cuotas futuras ya abonadas
         val query = """
         SELECT c.*
         FROM cliente c
-        INNER JOIN cuota q ON c.id = q.idCliente
-        WHERE c.tipo = 'socio' AND q.fechaVencimiento = ?
-        """.trimIndent()
+        INNER JOIN cuota q
+        ON c.id = q.idCliente
+        WHERE c.tipo = 'socio'
+        AND q.fechaVencimiento = ?
+        AND NOT EXISTS (
+        SELECT 1
+        FROM cuota q2
+        WHERE q2.idCliente = c.id
+        AND q2.fechaVencimiento > q.fechaVencimiento
+        ) """.trimIndent()
 
         val cursor = db.rawQuery(query, arrayOf(fechaHoy))
 
@@ -229,7 +237,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         fechaVencimiento: String,
         tipo: String,
         monto: Double
-    ): Boolean {
+    ): Long {
         val db = writableDatabase
         val values = ContentValues().apply {
             put("idCliente", idCliente)
@@ -241,8 +249,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
             put("monto", monto)
         }
 
-        val resultado = db.insert("cuota", null, values)
-        return resultado != -1L
+        val id = db.insert("cuota", null, values)
+        return id
     }
 
     fun obtenerProximoNroCuota(clienteId: Int): Int {
@@ -263,15 +271,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "clubDB", nul
         val db = readableDatabase
         val cursor = db.rawQuery(
             """
-        SELECT * FROM cuota 
-        WHERE idCliente = ? AND tipo = ? 
-        ORDER BY fechaPago DESC 
+        SELECT * FROM cuota
+        WHERE idCliente = ? AND tipo = ?
+        ORDER BY id DESC
         LIMIT 1
         """.trimIndent(), arrayOf(idCliente.toString(), tipo)
         )
 
         return if (cursor.moveToFirst()) {
             Cuota(
+                id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),  // <- leemos el id
                 idCliente = cursor.getInt(cursor.getColumnIndexOrThrow("idCliente")),
                 nroCuota = cursor.getInt(cursor.getColumnIndexOrThrow("nroCuota")),
                 formaPago = cursor.getString(cursor.getColumnIndexOrThrow("formaPago")),
