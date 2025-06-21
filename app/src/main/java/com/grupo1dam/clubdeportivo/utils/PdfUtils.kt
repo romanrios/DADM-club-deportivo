@@ -352,15 +352,17 @@ private fun drawRecibo(
     }
 
     drawFila("N° de recibo:", nroRecibo.toString().padStart(8, '0'))
+    drawFila("Fecha de pago:", fechaPago)
     drawFila("Tipo de cliente:", tipoCliente)
     drawFila("Tipo de cuota:", tipoCuota)
-    drawFila("Fecha de pago:", fechaPago)
     drawFila("DNI:", cliente.dni.toString())
     drawFila("Nombre:", "${cliente.nombre} ${cliente.apellido}")
     drawFila("Forma de pago:", formaPago)
     drawFila("Monto:", monto)
-    drawFila("N° de cuota:", nroCuota.toString())
-    drawFila("Fecha de vencimiento:", fechaVencimiento)
+    if (tipoCliente == "socio") {
+        drawFila("N° de cuota:", nroCuota.toString())
+        drawFila("Vencimiento:", fechaVencimiento)
+    }
 
     // Nota al final
     val paintNota = Paint().apply {

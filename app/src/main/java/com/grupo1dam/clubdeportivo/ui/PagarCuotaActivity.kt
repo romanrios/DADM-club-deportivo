@@ -177,8 +177,8 @@ class PagarCuotaActivity : BaseToolbarActivity() {
             lineas.add("<b style='color:#003366;'>$titulo:</b> <span style='font-size:18px;'>$valor</span>")
         }
 
-        linea("Recibo N°", cuota.id.toString().padStart(8, '0'))
-        linea("Fecha", cuota.fechaPago)
+        linea("N° de recibo", cuota.id.toString().padStart(8, '0'))
+        linea("Fecha de pago", cuota.fechaPago)
         linea("Tipo de cliente", if (esSocio) "Socio" else "No socio")
         linea("Tipo de cuota", cuota.tipo.capitalize())
         linea("Nombre", "${cliente.nombre} ${cliente.apellido}")
@@ -187,7 +187,7 @@ class PagarCuotaActivity : BaseToolbarActivity() {
         linea("Monto", montoFormateado)
 
         if (esSocio) {
-            linea("N° Cuota", cuota.nroCuota.toString())
+            linea("N° de cuota", cuota.nroCuota.toString())
             linea("Vencimiento", cuota.fechaVencimiento)
         }
 
