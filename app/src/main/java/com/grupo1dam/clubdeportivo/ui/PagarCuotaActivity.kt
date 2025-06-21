@@ -68,7 +68,9 @@ class PagarCuotaActivity : BaseToolbarActivity() {
 
     private fun pagarCuota() {
         val dniStr = etDni.text?.toString()
+
         val dni = dniStr?.toIntOrNull()
+
         if (dniStr.isNullOrBlank() || dni == null) {
             Toast.makeText(this, "DNI inválido", Toast.LENGTH_SHORT).show()
             return

@@ -17,7 +17,7 @@ class CarnetActivity : BaseToolbarActivity() {
 
     private lateinit var etDni: TextInputEditText
     private lateinit var btnGenerar: Button
-    private lateinit var btnImprimir: Button
+    private lateinit var btnDescargar: Button
     private lateinit var cardView: CardView
     private lateinit var txtInfo: TextView
     private lateinit var dbHelper: DatabaseHelper
@@ -28,7 +28,7 @@ class CarnetActivity : BaseToolbarActivity() {
 
         etDni = findViewById(R.id.carnet_et_dni)
         btnGenerar = findViewById(R.id.carnet_btn_generar)
-        btnImprimir = findViewById(R.id.carnet_btn_imprimir)
+        btnDescargar = findViewById(R.id.carnet_btn_imprimir)
         cardView = findViewById(R.id.carnet_card_view)
         txtInfo = findViewById(R.id.carnet_txt_info)
         dbHelper = DatabaseHelper(this)
@@ -44,14 +44,14 @@ class CarnetActivity : BaseToolbarActivity() {
             if (cliente == null) {
                 Toast.makeText(this, "El cliente no existe", Toast.LENGTH_SHORT).show()
                 cardView.visibility = View.GONE
-                btnImprimir.visibility = View.GONE
+                btnDescargar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             if (cliente.tipo != "socio") {
                 Toast.makeText(this, "El cliente no es socio", Toast.LENGTH_SHORT).show()
                 cardView.visibility = View.GONE
-                btnImprimir.visibility = View.GONE
+                btnDescargar.visibility = View.GONE
                 return@setOnClickListener
             }
 
@@ -65,10 +65,10 @@ class CarnetActivity : BaseToolbarActivity() {
 
             txtInfo.text = Html.fromHtml(infoHtml, Html.FROM_HTML_MODE_LEGACY)
             cardView.visibility = View.VISIBLE
-            btnImprimir.visibility = View.VISIBLE
+            btnDescargar.visibility = View.VISIBLE
         }
 
-        btnImprimir.setOnClickListener {
+        btnDescargar.setOnClickListener {
             val cliente = dbHelper.obtenerClientePorDni(etDni.text.toString().toInt())
             if (cliente != null) {
                 generarCarnetPdf(this, cliente)

@@ -359,7 +359,7 @@ private fun drawRecibo(
     drawFila("Nombre:", "${cliente.nombre} ${cliente.apellido}")
     drawFila("Forma de pago:", formaPago)
     drawFila("Monto:", monto)
-    if (tipoCliente == "socio") {
+    if (tipoCliente.lowercase() == "socio") {
         drawFila("N° de cuota:", nroCuota.toString())
         drawFila("Vencimiento:", fechaVencimiento)
     }
