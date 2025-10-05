@@ -2,7 +2,7 @@
 
 ## Proyecto Integrador
 
-<img width="1080" height="639" alt="portada" src="https://github.com/user-attachments/assets/f15db859-8b06-47bc-8e93-b2e98ce33b8a" />
+<img width="1080" height="639" alt="portada" src="https://github.com/user-attachments/assets/ed718ff2-a17e-45a6-add1-ab28f50a3bfb" />
 
 ![Screenshot Android Studio](https://github.com/user-attachments/assets/4b942ac7-7963-4e9b-8f79-be20e1aeef5b)
 
